@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Tag selector for all input elements */
+        /* input {
+            height: 20px;
+            width: 400px;
+            font-size: 18px;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bold;
+        } */
+
+        input[type="text"] {
+            height: 20px;
+            width: 400px;
+            font-size: 18px;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bold;
+            color: red;
+        }
+
+        /* Creation of the style for a class */
+        .b1 {
+            height: 60px;
+            width: 700px;
+        }
+        .b2 {
+            font-size: 40px;
+            color: blue;
+            font-style: italic;
+        }
+        input[type="text"].b2 {
+            width: 600px;
+        }
+    </style>
+</head>
+<body>
+    <h1>The Class Selector to apply styles</h1>
+    <div>
+        <input type="text" value="I am Text 1"/>
+        <br/>
+        <input type="text" value="I am Text 2"/>
+        <br/>
+        <input type="text" value="I am Text 3" class="b2"/>
+        <br/>
+        <input type="button" value="Button 1"
+           class="b1"/>
+        <br/>
+        <input type="button" value="Button 2"
+         class="b2"/>
+        <br/>
+    </div>
+</body>
+</html>
