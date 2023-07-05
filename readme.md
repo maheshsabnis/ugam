@@ -76,4 +76,47 @@
 ````css
      input.b2{}
 ````                      
-
+# CSS 3 Query-Based Selectors
+- Used to apply CSS Styles on elements based in DOM Iteration
+    - Combinational Selectors based on Position of the element
+- Pseudo-Classes
+    - Based on the State of the element
+    - State is defined based on action performed by end-user on DOM Element  
+    - The CSS 3 listen to DOM events and directly applies styles on HTML Elements
+ - Pseudo-Elements 
+    - based on specific index of the element
+    - The Value aka Contents inside the element      
+    - E.g.
+        - Applying Styles on a first element in collection or first character or first line
+        - Inserionof contents at some position
+    - syntax
+        - The '::' syntax for Pseudo-Elements 
+        - selector::Pseudo-Elements {
+            css style property: value
+        }    
+# CSS 3 Layout Enhancemnets
+- Box Model
+    - The Container Elements
+        - Content
+            - Contents (Text / Element) presnet in Layout element e.g. div
+        - Padding
+            - The arrangement for contmets from inside the Layout
+        - Border
+            - Border of the Layout
+        - Margin
+            - From outside w.r.t. parent of the layout
+- Flexbox
+    - A layout for an easy orgainizing the Display Elements based on the flexible responsive layput chamges of the browser
+    - Eleminates need of float and positioning 
+    - Class properties for Contents
+        -  flex-grow: Percentage of expanding the content aka grow
+- Grid      
+    - A Comoputed layout that is used to well organize the UI based on the dimensions of the Browser where the page is rendered
+        - The 12 Column Grid Layout at max is supported by all browser
+        - Defulat with for each column is 100px (Note: based on Display settings )
+    - Native to CSS 3
+        - Supported by Most popular browsers
+    - Grid Container
+        - applied on Layout Element e.g. div
+    - Grid Item
+        - applied on contents of the Layout element 

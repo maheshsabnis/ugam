@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         .flex-container {
+            display: flex;
+            background-color: blue;
+            /* flex-direction: column; */
+            /* flex-direction: column-reverse; */
+            flex-direction: row;
+            /* flex-direction: row-reverse; */
+            /*Wrap*/
+           flex-wrap: wrap;/*nowrap is default*/
+           /* justify-content: flex-end; */
+           /* justify-content: flex-start; */
+           justify-content: space-around;
+            /* flex-wrap: wrap-reverse; */
+        }
+         .flex-item {
+            background-color: azure;
+            margin: 10px;
+            padding: 20px;
+            font-size: 30px;
+         }
+    </style>
+</head>
+<body>
+    <h1>The Flex Box DEMO</h1>
+    <div class="flex-container">
+        <div class="flex-item" style="flex-grow: 1;">1</div>
+        <div class="flex-item" style="flex-grow: 1;">2</div>
+        <div class="flex-item" style="flex-grow: 8;">3</div>
+        <div class="flex-item" style="flex-shrink: 0;">4</div>
+        <div class="flex-item" style="align-self: center;">5</div>
+        <div class="flex-item">6</div>
+        <div class="flex-item">7</div>
+        <div class="flex-item">8</div>
+        <div class="flex-item" >9</div>
+        <div class="flex-item">10</div>
+        <div class="flex-item">11</div>
+        <div class="flex-item">12
+            <input type="text" value="Mahesh">
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* The Mouse Events are handled by CSS 3 Object Model using the 'hover' state, that internally listens to the Mouse Events */
+
+        #btn1:hover {
+            background-color: red;
+            color: yellow;
+           
+        }
+        a:link {
+            color: red;
+        }
+
+        a:visited {
+            color: green;
+        }
+
+        a:hover {
+            color: brown;
+        }
+        a:active {
+            color: blue;
+        }
+
+        div:hover p {
+            display: block;
+        }
+
+        p {
+           display: none; /* hidden */
+           background-color: aqua;
+           padding: 20px; 
+        }
+
+    </style>
+    <script>
+        window.onload = function(){
+            /* Read the button element based on its 'id' */
+            var btn = document.getElementById("btn");
+            /* EVent for the button element */
+            btn.addEventListener('mouseenter', function(){
+                /*The 'this' represente an element scopped
+                 within the addEventListener
+                 Currently addEventListener is subscribed on button element, the 'this' is Button element itself
+                */
+               this.style.backgroundColor = "red"; 
+            });
+            btn.addEventListener('mouseleave', function(){
+                /*The 'this' represente an element scopped
+                 within the addEventListener
+                 Currently addEventListener is subscribed on button element, the 'this' is Button element itself
+                */
+               this.style.backgroundColor = ""; 
+            });
+        };
+    </script>
+</head>
+<body>
+    <h1>State based Styles</h1>
+    <button id="btn">Click Me!!</button>
+    <hr/>
+    <button id="btn1">Click Me New!!
+      
+    </button>
+    <hr/>
+    <a href="https://www.webnethelper.com" target="_parent">Site By Mahesh Sabnis</a>
+    <br/>
+    <div> Effect for Div
+        <p>This will show when the Mouse is moved</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .grid-container {
+           display: grid;   
+           /*Let there be 3 columns form auto*/
+           /*grid-template-columns: auto auto auto;  */
+           grid-template-columns: 80px 180px 40px auto;
+           /* Grid row arrangement w.r.t. container*/
+           grid-template-rows: 100px auto 80px;
+           background-color: chocolate;
+           /* organize contents*/
+           justify-content: space-between;
+           /* gap across contents in columns*/
+           gap: 10px;
+           padding: 20px;
+        }
+        .grid-item {
+            border: 2px solid yellow;
+            background-color: rgba(255, 255, 255, 0);
+            padding: 20px;
+            font-size: 20px;
+            text-align: center;
+        } 
+    </style>
+</head>
+<body>
+    <h1>The Grid DEMO</h1>
+    <div class="grid-container">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>
+        <div class="grid-item">7</div>
+        <div class="grid-item">8</div>
+        <div class="grid-item">9</div>
+        <div class="grid-item">10</div>
+        <div class="grid-item">11</div>
+        <div class="grid-item">12</div>
+    </div>
+</body>
+</html>

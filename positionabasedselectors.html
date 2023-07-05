@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <!--Defining Inline Styles-->
+    <style>
+        /* define Class*/
+        .parent-article {
+            /* left top bottom right (External W.r.t. Parent)*/
+            margin: 5 10 5 5;
+            /* inside to content for left-wall of the parent */
+            padding: 20px;
+            background-color: lightgray;
+        }
+        /* All h1 and .article (class) appears after the HTML element on which  .parent-article class is applied  (currently applied in <article></article>) MUST have 
+        margin as 15px and padding as 10px */
+
+        .parent-article > h1, .article {
+            margin: 15px;
+            padding: 10px;
+        }
+
+    
+        .article {
+            background-color: azure;
+            font-size: 20px;
+            text-align: justify;
+            /* padding: 10px; */
+        }
+
+          /* All h2 and p elements  appears after the HTML elements applied with class as .artcle must be having margin as 20px and font-size as x-small */
+
+          .article > h2, p {
+            margin: 20px;
+            font-size: 15px;
+          } 
+
+          article > button {
+            height: 80px;
+            width: 300px;
+            color: red;
+            background-color: yellow;
+          }
+
+    </style>
+    
+</head>
+<body>
+    <h1> The Article with the RICH UI </h1>
+   <article class="parent-article">
+    <h1>The demo for HTMl 5 Article</h1>  
+    <article class="article">
+         <h2>HTML 5</h2>
+         <p>
+            The world's default markup for creating UI for browser. RICH with several featues whlie using HTML 5 
+         </p>
+         <button>Click 1</button>
+    </article>
+    <article class="article">
+        <h2>ES 6</h2>
+        <p>
+           The modern JavaScript for Modern Browser Based Web App UI. Contains classes, and other server-side programming features.  
+        </p>
+   </article>
+   <article class="article" id="arc2">
+    <h2>React</h2>
+    <p>
+      JavaScript Library by Facebook for Interactive UI. USed by several Web apps acros globe for building modern Web App UI.
+    </p>
+</article>
+<article class="article">
+    <h2>James Bond</h2>
+    <p>
+        The James Bond series focuses on James Bond, a fictional British Secret Service agent created in 1953 by writer Ian Fleming, who featured him in twelve novels and two short-story collections. Since Fleming's death in 1964, eight other authors have written authorised Bond novels or novelisations: Kingsley Amis, Christopher Wood, John Gardner, Raymond Benson, Sebastian Faulks, Jeffery Deaver, William Boyd, and Anthony Horowitz. The latest novel is With a Mind to Kill by Anthony Horowitz, published in May 2022. Additionally Charlie Higson wrote a series on a young James Bond, and Kate Westbrook wrote three novels based on the diaries of a recurring series character, Moneypenny.
+    </p>
+</article>
+</article> 
+</body>
+</html>
