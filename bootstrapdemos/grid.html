@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <style>
+        div.col {
+            background-color: brown;
+        }
+        div.col-xxl-12 {
+            background-color: blue;
+        }
+        div.col-sm-3 {
+            background-color: red;
+        }
+        div.col-sm-2 {
+            background-color: cyan;
+        }
+        .c1 {
+            background-color: yellow;
+            border: 10px;
+            border-color: red;
+            height: 200px;
+        }
+        .c2 {
+            background-color: chartreuse;
+            text-align: center;
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Using Bootstrap Grid</h1>
+    <h5>The Grid System</h5>
+    <div class="container text-center" >
+        <div class="row">
+            <div class="col-xxl-12">
+                Column 1
+            </div>
+            <div class="col">
+                Column 2
+            </div>
+            <div class="col">
+                Column 3
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                Column 1
+            </div>
+            <div class="col-sm-3">
+                Column 2
+            </div>
+            <div class="col-sm-3">
+                Column 3
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2">
+                Column 1
+            </div>
+            <div class="col-sm-8">
+                Column 2
+            </div>
+            <div class="col-sm-2">
+                Column 3
+            </div>
+        </div>
+        <!--Nesting-->
+        <div class="row">
+            <div class="col-sm-3">
+                First Column 
+            </div>
+            <div class="col-sm-9 c1">
+                <div class="row c2" >
+                    <div class="col-sm-6">
+                         Second Colum, Row in it having First Column
+                    </div>
+                    <div class="col-sm-6">
+                        Second Colum, Row in it having Second Column
+                    </div>
+                </div> 
+                 
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>

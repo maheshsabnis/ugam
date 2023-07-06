@@ -120,3 +120,93 @@
         - applied on Layout Element e.g. div
     - Grid Item
         - applied on contents of the Layout element 
+
+# Date: 06-July-2023
+# Using Bootstrap
+- refer it in the project by downloading it using Node Package Manager (NPM)
+    - Required Node.js downloaded n=and installed on the machine
+        - https://www.nodejs.org
+    - We need 'package.json' that contains  list of app packages used by the current application
+        - npm init -y
+            - Create package.json with default settings
+        - npm install --save [PACKAGE-NAME]
+            - npm install --save bootstrap
+- Standard CSS for
+    - Layout
+        - div
+            - container class
+                - default marging from top-left-right-bottom
+            - grid class
+                - Mobilem first flexbox grid
+                - 12 Columns System
+                - six responsive tiers
+                - The 'row' Class applied to div for row definition
+                - The 'col' class applied to div for column
+                    - col < 567px
+                    - sm > 567px
+                    - md >= 768px
+                    - lg 990+
+                    - xl 1200
+                    - xxl 1400
+        - table
+            - table class
+                - table-bordered table-striped table-condensed table-dark table-danger, etc 
+    - Forms
+        - form-group, applied on div
+        - form-control, applied on editable elements e.g. input:text, input:rafio, select, etc.
+    - Buttons
+        - btn , btn-success, btn-primary, btn-warning, btn-danger, etc. 
+            - icons for buttons
+    - Note:
+        - To use CSS in application for enhancing HTML elements we need to refer the bootstrap CSS Library
+    - CSS Class Prefixes
+        - sm, small
+        - lg, large
+        - col, columm
+        - row, row    
+    - Responsive UI as well as RICH UI
+        - Forms
+            - RICH and Response Forms
+            - Classes for FOrm Elements
+                - form-control
+                    - -lg
+                    - -sm
+                    - form-text
+                    - diabled  
+        - Navigations
+            - Navigation classes
+                - navbar (verticle Navigation)
+                    - navbar-expand-sm, lg (horizontal)
+                    - applied on 'nav' tag
+                - navbar-nav
+                    - class for rendering the Navigation UI
+                    - applied on 'ul' tag     
+                - nav-item
+                    - applied on 'li' tag list item
+                - nav-link    
+                    - anchor tag
+        - Dropdown class
+            - This is a class-plugin
+                - This needs the Bootstrap JavaScript to be loaded on browser to activate the plugin
+            - The 'dropdown' class
+                - Used to create a scope for 'ul' to exand and collaspe the list based on 'toggeling'
+                    - dropdown-toggle
+                        - applied on the element that shows an UX for dropdown e.g. button
+                - dropdown-menu
+                    - dropdown-item            
+
+- Components
+    - Plugins, HTML + CSS + JavaScript   
+        - Bootstrap Framework      
+    - To use these plugins we need to load
+        - CSS files
+        - JS files     
+    - Model-Dialog
+    - AutoComplete
+    - Progressbar and slider
+    - Carousel
+    - Pagination
+    - Dropdown
+    - Breadcumb
+    - Accordian
+    - .... and many more      

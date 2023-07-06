@@ -14,3 +14,12 @@
     - When a mouse is hover over the row show the tooltip that will show the message as "the current row is selected"
     - (optional): If the height and width of the page is resized and if the width of the table is more than the resized width of the div then show the horizontal scross bar
 5. Create a flexbox that shows multiple div where each div contains text in it. Write CSS Styles to show the First Character of each content text as Bold with height as 30 px     
+
+
+# Date: 06-July-2023
+1. Using Bootsrap Create a Form with following requirements
+    - The Name Input Element MUST be grouped with dropdown (select) where end-user can select values like Mr., Mrs., Miss.
+    - The Salary Input elemnt MUst be Grouped with Rupees Symbol
+    - The Email Input eleent MUST be grouped with as follows
+        - [INPUT-ELEMENT-FOR-EMAIL-NAME]@[INPUT-ELEMENT-FORM-PROVIDER].[DROPDOWN-FOR-COM/EDU/ORG/CO.IN]
+2. Create a Navigation Menus for E-Commerce Product Selection like amazon.in            
