@@ -1,0 +1,21 @@
+/* The Variable Definitions */
+
+$uiFont: Helvetica, sans-serif;
+$uiColor: yellow;
+$uiFontSize: 20px;
+$uiWidth: 680px;
+
+/* defining the applicaiton of variables on UI Element */
+
+body {
+    font-family: $uiFont;
+    font-size: $uiFontSize;
+    color: $uiColor;
+}
+
+/* The variable scoping withing the file across all target elements */
+
+#dvContainer {
+    width: $uiWidth;
+}
+

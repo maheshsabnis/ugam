@@ -1,0 +1,7 @@
+@import "mixinstyle";
+
+
+.danger {
+   @include text-effect-warning;
+   background-color: darkred;
+}

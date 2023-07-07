@@ -1,0 +1,15 @@
+/* Define a style that will be avaialble across */
+/* class that will be using the mixin 
+to apply the text-effects
+THis will use the @include directive to apply the mixin 
+*/
+.warning {
+  color: orange; /* Waring text */
+  font-weight: bold;
+  font-size: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 3px solid red;
+  background-color: chartreuse;
+}
+
+/*# sourceMappingURL=mixinstyle.css.map */

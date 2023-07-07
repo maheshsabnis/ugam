@@ -1,0 +1,13 @@
+/* Lets import the utilitystyle.scss
+ No extension required
+*/
+
+@import "utilitystyle";
+
+/* Lets define the local styles as per the need */
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+    color: cyan;
+}

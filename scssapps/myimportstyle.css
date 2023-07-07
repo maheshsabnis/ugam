@@ -1,0 +1,16 @@
+/* Lets import the utilitystyle.scss
+ No extension required
+*/
+/* Defining the targets where the style will be applied */
+body, ul, ol, div {
+  padding: 0;
+  margin: 10px;
+  border-color: chocolate;
+} /* Lets define the local styles as per the need */
+body {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 30px;
+  color: cyan;
+}
+
+/*# sourceMappingURL=myimportstyle.css.map */

@@ -1,0 +1,14 @@
+/* The Variable Definitions */
+/* defining the applicaiton of variables on UI Element */
+body {
+  font-family: Helvetica, sans-serif;
+  font-size: 20px;
+  color: yellow;
+}
+
+/* The variable scoping withing the file across all target elements */
+#dvContainer {
+  width: 680px;
+}
+
+/*# sourceMappingURL=scssvariables.css.map */
