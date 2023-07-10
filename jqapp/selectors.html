@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="./../node_modules/jquery/dist/jquery.min.js"></script>
+
+    <script src="./math.js"></script>
+
+    <script>
+        /* Use the jQuery Object Model to execute the page */
+        $(document).ready(function(){
+            /*Create an instance of the Mathematics object*/
+            var math = new Mathematics();
+
+            /* the id selector for events */
+            $("#btnadd").on('click',function(){
+                  var result = math.add(parseInt( $("#txtX").val()),parseInt( $("#txtY").val()));
+
+                $("#txtRes").val(result);
+            });
+
+            $("#btnsub").on('click',function(){
+
+                var result = math.substract(parseInt( $("#txtX").val()),parseInt( $("#txtY").val()));
+            $("#txtRes").val(result);
+            });
+
+
+            $("#btnmul").on('click',function(){
+
+                var result = math.multiply(parseInt( $("#txtX").val()),parseInt( $("#txtY").val()));
+
+            $("#txtRes").val(result);
+            });
+
+            $("#btndiv").on('click',function(){
+
+                var result = math.divide(parseInt( $("#txtX").val()),parseInt( $("#txtY").val()));
+
+            $("#txtRes").val(result);
+            });
+
+            $("#btnclear").on('click',function(){
+               /* $("#txtX").val('');
+                $("#txtY").val('');
+                $("#txtRes").val('');*/
+
+                $(".form-control").val('');
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <h1>jQuery Selectors</h1>
+    <div class="container">
+        <div class="form-group">
+            <label for="X">X:
+                <input type="text" class="form-control" id="txtX">
+            </label>
+        </div>
+        <div class="form-group">
+            <label for="Y">Y:
+                <input type="text" class="form-control" id="txtY">
+            </label>
+        </div>
+        <div class="form-group">
+            <label for="resule">Result:
+                <input type="text" class="form-control" id="txtRes">
+            </label>
+        </div>
+        <div class="btn-group-lg">
+            <button type="button" id="btnadd" class="btn btn-primary">Add</button>
+            <button type="button" id="btnsub" class="btn btn-danger">Substract</button>
+            <button type="button" id="btnmul" class="btn btn-success">Multiply</button>
+            <button type="button" id="btndiv" class="btn btn-dark">Divide</button>
+            <button type="button" id="btnclear" class="btn btn-warning">Clear</button>
+        </div>
+    </div>
+
+</body>
+</html>

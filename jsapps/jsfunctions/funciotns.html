@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <script src="./functions.js"></script>
+     
+     <script>
+        window.onload =function(){
+        /* Instantiating myobject */
+        var obj = new myobject();
+
+        console.log(`Power = ${obj.power(3,4)}`);
+
+        console.log(`Data in Array = ${obj.getValues()}`);
+
+        obj.addValue(40);
+        console.log(`Data in Array after add = ${obj.getValues()}`);
+
+     console.log(arr1);
+
+     arr1.push('D')
+     console.log(arr1);
+
+    var ui = new uiGenerator();
+    
+    var select = ui.select(arr1);
+ 
+    document.getElementById('dvSelect').innerHTML = select;
+
+    var names = ['James Bond', 'Ethan Hunt', 'Indiana Jones', 'Jason Bouirn', 'Jack Reacher'];
+    var select1 = ui.select(names);
+    document.getElementById('dvSelect1').innerHTML = select1;
+
+        }
+     </script>
+</head>
+<body>
+    <h1>DEMO Functions</h1>
+    <div class="container" id="dvSelect">
+    </div>
+    <hr/>
+    <div class="container" id="dvSelect1">
+    </div>
+</body>
+</html>
