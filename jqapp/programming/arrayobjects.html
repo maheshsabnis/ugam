@@ -4,9 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="./../../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="./arrarobjects.js"></script>
+    <script>
+       $(document).ready(function(){
+         var table = generateTable();
+         $("#dvTable").html(table);
+       });
+    </script>
 </head>
 <body>
-    
+    <div class="container" id="dvTable">
+       
+    </div>
 </body>
 </html>

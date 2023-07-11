@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="./../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var names = [
+                'Suprotim', 'Vikram', 'Subodh', 'Manish', 'Mahesh', 'Abhijeet', 'Saket', 'Sachin', 'Sumit', 'Sachin', 'Kiran'
+            ];
+
+            /*An Evet that will be used to filter li based on data in input element */
+
+            $("#txtfilter").on('keyup',function(){
+                /*Read value from the input element*/
+                var val = $(this).val().toLowerCase();
+                /* Start filtering*/
+                $("#lstNames li").filter(function(){
+                    /* the 'this' is an 'li' element in 'lstNames' 
+                     find the match of the 'text()' of the 'li'
+                     with the 'val', the value entered into the input element
+                     The toggle based on the filter will add 
+                     "style="display:none"" on the DOM elements 
+                    */
+                    $(this).toggle($(this).text().toLowerCase().indexOf(val) > -1);
+                });
+            });
+
+            generateList();
+
+            function generateList(){
+                var li;
+                names.forEach((n,i)=>{
+                    li+=`<li>${n}</li>`;
+                });
+                $("#lstNames").html(li);
+            }
+        });
+    </script>
+</head>
+<body>
+    <h1>Using the 'filter()' and 'toggel()' to dynamically modify the HTML DOM</h1>
+    <label for="txtfilter">Filter:
+        <input type="text" id="txtfilter" class="form-control">
+    </label>
+    <hr>
+    <ul id="lstNames"></ul>
+
+</body>
+</html>
