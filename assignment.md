@@ -57,3 +57,18 @@
 - Select any one of the radio button and then based on the value entered in the input element filter data from the table 
     - e.g. if the radio button selected is 'ProductName' then the input element will be entered teh value of the productname and table data will be filtered based on the productname only      
  
+
+
+ # Date:12-July-2023
+ 1.  Crear product.html and perform GET and POST Operations with product API
+    - https://catprdapi.azurewebsites.net/api/Product
+ 2. Enhance the Asignment No of of 11-July-2023, where wnen  the Select button is clicked, the Row Details for Category / Product MUST be loaded in the Input elements and then the End-User can update its details. But to save this details Use the same 'Save' button. The seperate Update button is not needed. The same 'Save' button will be used for Update and New record creation
+ 3. Modify the generateTable()  table method as follows
+ 
+ ````javascript
+    function generateTable(dataSource, canDelete){
+        .....
+    }
+ ````   
+ - if the 'canDelete' is true then each row will have a 'Delete' button. When this button is clicked , delete the record by making AJAX call
+ 

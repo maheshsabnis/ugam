@@ -54,18 +54,30 @@
         function loadData(){
             $.ajax({
                 url:url,
-                method: 'GET'
-            }).done(function(response){
+                method: 'GET',
+              /*  dataType:'jsonp', */
+              /*  crossDomain:true, */
+              /*  contentType: 'application/json', */
+               /* headers:{
+                    "accept":'application/json',
+                    "Access-Control-Allow-Origin":"*"
+                },*/
+                
+            })
+             .done(function(response){
+                console.log(`Response ${JSON.stringify(response)}`)
                 /* Read data and pass it to the generateTable() method */
-                var table = generateTable(response);
+               var table = generateTable(response);
                 /* Show table in dvTable div */
-                $("#dvTable").html(table);
+               $("#dvTable").html(table);
                 $("#statusMessage").html('Call is successful');
-            }).fail(function(error){
+            })
+           .fail(function(error){
                 $("#statusMessage").html(`Call Failed ${error}`);
-            });
+                alert(JSON.stringify(error));
+            }); 
         }
-        
+
         function save(){
             /* Read data from the input elements */
             var category = {
