@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="./../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./table.js"></script>
+
+    <script>
+        var url = "https://catprdapi.azurewebsites.net/api/Category";
+        $(document).ready(function(){
+            loadData();
+
+            $("#btnnew").on('click',function(){
+                $('.form-control').val('');
+            });
+
+            $("#btnsave").on('click', function(){
+                save();
+            });
+            $("#btnupdate").on('click', function(){
+                update();
+            });
+            $("#btndelete").on('click', function(){
+              remove();
+            });
+
+            $("#txtcatid").on('change',function(){
+                loadDataById($(this).val());
+            });
+
+        });
+
+        function loadDataById(id){
+            $.ajax({
+                url:`${url}/${id}`,
+                method: 'GET'
+            }).done(function(response){
+                /* Show data in input elements */
+
+                $("#txtcatid").val(response.CategoryId);
+                $("#txtcatname").val(response.CategoryName);
+                $("#txtbaseprice").val(response.BasePrice);
+
+
+                $("#statusMessage").html('Call is successful');
+            }).fail(function(error){
+                $("#statusMessage").html(`Call Failed ${error}`);
+            });
+        }
+
+        function loadData(){
+            $.ajax({
+                url:url,
+                method: 'GET'
+            }).done(function(response){
+                /* Read data and pass it to the generateTable() method */
+                var table = generateTable(response);
+                /* Show table in dvTable div */
+                $("#dvTable").html(table);
+                $("#statusMessage").html('Call is successful');
+            }).fail(function(error){
+                $("#statusMessage").html(`Call Failed ${error}`);
+            });
+        }
+        
+        function save(){
+            /* Read data from the input elements */
+            var category = {
+                "CategoryId": parseInt($("#txtcatid").val()),
+                "CategoryName": $("#txtcatname").val(),
+                "BasePrice":  parseInt($("#txtbaseprice").val())
+            };
+
+           $.ajax({
+                url:url,
+                method: "POST",
+                data: JSON.stringify(category), /*JSON data taht is posted */
+                contentType: 'application/json'
+            }).done(function(response){
+                $("#statusMessage").html('Category creation is successful');
+                loadData();
+            }).fail(function(error){
+                $("#statusMessage").html(`Call Failed ${error}`);
+            });
+        }
+
+        function update(){
+            /* Read data from the input elements */
+            var category = {
+                "CategoryId": parseInt($("#txtcatid").val()),
+                "CategoryName": $("#txtcatname").val(),
+                "BasePrice":  parseInt($("#txtbaseprice").val())
+            };
+
+           $.ajax({
+                url:`${url}/${category.CategoryId}`, /* Passing the CategoryId as URL Parameter */
+                method: "PUT",
+                data: JSON.stringify(category), /*JSON data taht is posted */
+                contentType: 'application/json'
+            }).done(function(response){
+                $("#statusMessage").html('Category is updated successfully');
+                loadData();
+            }).fail(function(error){
+                $("#statusMessage").html(`Call Failed ${error}`);
+            });
+        }
+
+         function remove(){
+           $.ajax({
+                url:`${url}/${$("#txtcatid").val()}`, /* Passing the CategoryId as URL Parameter */
+                method: "DELETE"
+            }).done(function(response){
+                $("#statusMessage").html('Category is deleted successfully');
+                loadData();
+            }).fail(function(error){
+                $("#statusMessage").html(`Call Failed ${error}`);
+            });
+        }
+    </script>
+
+</head>
+<body>
+    <h1>The SimpleAJAX Demo</h1>
+    <div class="container">
+        <div class="container">
+            <div class="form-group">
+                <label>Category Id</label>
+                <input type="text" id="txtcatid" class="form-control" placeholder="enter category id">
+            </div>
+            <div class="form-group">
+                <label>Category Name</label>
+                <input type="text" id="txtcatname" class="form-control" placeholder="enter category name">
+            </div>
+            <div class="form-group">
+                <label>Base Price</label>
+                <input type="text" id="txtbaseprice" class="form-control" placeholder="enter price">
+            </div>
+            <div class="btn-group-lg">
+                <button id="btnnew" class="btn btn-primary">New</button>
+                <button id="btnsave" class="btn btn-success">Save</button>
+                <button id="btnupdate" class="btn btn-warning">Update</button>
+                <button id="btndelete" class="btn btn-danger">Delete</button>
+            </div>
+        </div>
+        <br/>
+        <div class="container alert alert-success">
+            <strong>
+                <p id="statusMessage"></p>
+            </strong>
+        </div>
+        <hr/>
+        <div class="container" id="dvTable"></div>
+    </div>
+</body>
+</html>

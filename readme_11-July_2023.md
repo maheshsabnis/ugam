@@ -79,7 +79,8 @@
             
             Accept-Control-Allow-Origin: "*" /* for CORS*/
         }
-    }).done(SUCCESS-CALLBACK).fail(ERROR-CALLBACK);
+    }).done(SUCCESS-CALLBACK).fail(ERROR-CALLBACK).
+    completed();
 ````
 - SUCCESS-CALLBACK: The callback function that will be executed when the service return success
 - ERROR-CALLBACK: The callback function that will be executed when service has error response 
