@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="./../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./table.js"></script>
+    <script src="./service.js"></script>
+
+    <script>
+        
+        $(document).ready(function(){
+
+           var serviceObject = new service(); 
+
+            console.log('1. Calling teh method');
+            /* Subscribe to the Promise*/
+            serviceObject.loadData()
+                         .then(function(resp){
+                            var table = generateTable(resp);
+                            $("#dvTable").html(table);
+                             $("#statusMessage").html('Call is successful');
+                         })
+                         .catch(function(err){
+                            $("#statusMessage").html('Call is failed');
+                         });
+            
+            
+  
+          
+
+            $("#btnnew").on('click',function(){
+                $('.form-control').val('');
+            });
+
+            $("#btnsave").on('click', function(){
+                var prd = {
+                   "ProductId": $("#txtprdid").val(),    
+                   "ProductName": $("#txtprdname").val(),    
+                   "Description": $("#txtdesc").val(), 
+                   "Price": $("#txtprice").val(),  
+                   "CategoryId": $("#txtcatid").val(),   
+                   "Manufacturer":$("#txtmanu").val()   
+                }
+                serviceObject.saveData(prd)
+                        .then(function(resp){
+                            $("#txtprduniqueid").val(resp.ProductUniqueId);
+                            $("#statusMessage").html('Call is successful');
+                        })
+                        .catch(function(err){
+                            $("#statusMessage").html('Call is failed');
+                        });
+            });
+            $("#btnupdate").on('click', function(){
+                var prd = {
+                    "ProductUniqueId": $("#txtprduniqueid").val(),
+                    "ProductId": $("#txtprdid").val(),    
+                    "ProductName": $("#txtprdname").val(),    
+                    "Description": $("#txtdesc").val(), 
+                    "Price": $("#txtprice").val(),  
+                    "CategoryId": $("#txtcatid").val(),   
+                    "Manufacturer":$("#txtmanu").val()   
+                 }
+                 serviceObject.updateData(prd.ProductUniqueId, prd)
+                         .then(function(resp){
+                             
+                             $("#statusMessage").html('Update is successful');
+                         })
+                         .catch(function(err){
+                             $("#statusMessage").html('Call is failed');
+                         });
+            });
+            $("#btndelete").on('click', function(){
+              serviceObject.deleteData(parseInt($("#txtprduniqueid").val()))
+                           .then(function(resp){
+                                if(resp){
+                                    $("#statusMessage").html('delete is successful');
+                                } else {
+                                    $("#statusMessage").html('delete is failed');
+                                }
+                           })
+                           .catch(function(err){
+                               $("#statusMessage").html('Call is failed');
+                           }); 
+            });
+
+            $("#txtprduniqueid").on('change',function(){
+                serviceObject.loadDataById($(this).val())
+                    .then(function(resp){
+                        $("#txtprduniqueid").val(resp.ProductUniqueId);    
+                        $("#txtprdid").val(resp.ProductId);    
+                        $("#txtprdname").val(resp.ProductName);    
+                        $("#txtdesc").val(resp.Description);    
+                        $("#txtprice").val(resp.Price);    
+                        $("#txtcatid").val(resp.CategoryId);   
+                        $("#txtmanu").val(resp.Manufacturer);   
+                    })
+                    .catch(function(err){
+                        $("#statusMessage").html('Call is failed');
+                    });
+            }); 
+
+        });
+
+        
+    </script>
+
+</head>
+<body>
+    <h1>The SimpleAJAX Demo</h1>
+    <div class="container">
+        <div class="container">
+            <div class="form-group">
+                <label>Product Unitque Id</label>
+                <input type="text" id="txtprduniqueid" class="form-control" placeholder="enter product uniqueid">
+            </div>
+            <div class="form-group">
+                <label>Product Id</label>
+                <input type="text" id="txtprdid" class="form-control" placeholder="enter product id">
+            </div>
+            <div class="form-group">
+                <label>Product Name</label>
+                <input type="text" id="txtprdname" class="form-control" placeholder="enter productnam3">
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea  id="txtdesc" class="form-control" placeholder="enter description"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Price</label>
+                <input type="text" id="txtprice" class="form-control" placeholder="enter price">
+            </div>
+            <div class="form-group">
+                <label>Category Id</label>
+                <input type="text" id="txtcatid" class="form-control" placeholder="enter Category id">
+            </div>
+            <div class="form-group">
+                <label>Manufacturer</label>
+                <input type="text" id="txtmanu" class="form-control" placeholder="enter Manufacture">
+            </div>
+            <div class="btn-group-lg">
+                <button id="btnnew" class="btn btn-primary">New</button>
+                <button id="btnsave" class="btn btn-success">Save</button>
+                <button id="btnupdate" class="btn btn-warning">Update</button>
+                <button id="btndelete" class="btn btn-danger">Delete</button>
+            </div>
+        </div>
+        <br/>
+        <div class="container alert alert-success">
+            <strong>
+                <p id="statusMessage"></p>
+            </strong>
+        </div>
+        <hr/>
+        <div class="container" id="dvTable"></div>
+    </div>
+</body>
+</html>

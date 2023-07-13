@@ -1,0 +1,50 @@
+# FullStack App Development Strategies
+- Understand Business Domain
+- Plan for 
+    - Data Storage
+    - The Design Approch of the Application
+        - Monolithic App
+        - Microservices App
+        - Micro-FrontEnd
+    - Server-Side Runtime Stack
+        - .NET Core
+        - JAVA
+        - Node.js
+        - Python
+        - php
+    - Deployment Starategies
+        - On-Premises
+        - On Cloud
+    - The Strategies for following
+        - Data Access STructure
+        - Identity Managment
+        - Validations
+        - Deployment
+        - Testing    
+    - The Forn-End Technologies
+
+- The Full-Stack App Development
+    - Code-Sharing for Isomorphic Apps
+    - Modularity
+    - Communication Management across the layers of the Application       
+
+# Modularity
+    - Divide the big app system (Logic) into small autonomous and isolated set of libraries
+        - Seperate Modules for
+            - Business
+            - Data Access
+            - UI
+            - Presenter
+            - Data Managemen
+            - Security
+            - Validations
+    - Offer following advantages
+        - Maintainability
+        - Testability
+        - Deployment      
+    - If the Module has a method that is performing any 'Async' operation, then make sure that this method return 'Promise' object and the caller of this method must use the Promise object and subscribe to it. THis will make sure that the caller will be delevered with the response when the Promise has the data.  
+        - The Promise object had two methods
+            - .then()
+                - Success or Resolve
+            - .catch()
+                - Fail or Rejected    
