@@ -20,8 +20,6 @@ var service = function(){
         
         return records;
     };
-
-
     this.loadData=function(){
         console.log('2. ENtered in Method');
         /* Returning the Async State Object (Promise) to caller 

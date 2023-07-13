@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./asyncservice.js"></script>
+    <script src="./asyncservicecaller.js"></script>
+    <script>
+        $(document).ready(function(){
+            /* Subscribing to the Promise object  to get the data */
+            var asyncObject = new asyncServiceCaller();
+             asyncObject.allData().then(function(data){
+                console.log(`On Page data = ${JSON.stringify(data)}`);
+             }).catch(function(err){
+                console.log(`Error ${JSON.stringify(err)}`);
+             });  
+        });
+    </script>
+</head>
+<body>
+    <h1>Demo Async Programming</h1>
+</body>
+</html>

@@ -35,7 +35,7 @@
             - Data Access
             - UI
             - Presenter
-            - Data Managemen
+            - Data Management
             - Security
             - Validations
     - Offer following advantages
@@ -47,4 +47,39 @@
             - .then()
                 - Success or Resolve
             - .catch()
-                - Fail or Rejected    
+                - Fail or Rejected
+        - From ES 7 Onwards, if a method returns Promise object, then while calling the method in caller, we can use 'async' and 'await' keywords
+            - The 'async' is a method modifier (applied on method), this means that, the method is performing some opertaions those return 'Promise' object.
+            - The 'await' is applied on statement that represent a method call which is returing the promise object             
+
+# Server-Side JS with Node.js
+
+- Node.js
+    - Ready to use Modueles for
+        - Web Server, inbuilt
+        - Data Access
+            - choose the external module based on Relational or NoSQL Database
+        - REST APIs
+            - Various frameworks 
+        - Security
+            - Various libraries
+        - File Managment , inbuilt
+        - Streaming , inbuilt
+        - Cryptography , inbuilt
+        - Session Management
+            - Based on REST API as well as the Web Applicaiton Server
+        - Caching
+            - Same as session management
+        - ... any many more
+
+- Mongo Express Angular Node (MEAN) 
+- Mongo Express React Node (MERN)
+- MySQL, MSSQL, PostgreSQL, etc for database     
+- jQuery, Vue for Forn-End
+- Feathers, Nest.js for REST API and Web Apps instead of Express  
+
+- Node.js REST APIs for Microservices
+- React, Angular, Vue, jQuery for Micro-FrontEnds
+
+
+
