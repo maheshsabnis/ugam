@@ -99,3 +99,13 @@
         - CategoryName
     - Show error messages next to each input element. Disable the 'Save' button as well as 'Update' button if the page has invalid values
     - In Product.html page show list of Categories in the 'Select' element or may be using radiobutton list instead of having input element for entring CategoryId                    
+
+
+
+# Date: 14-July-2023
+
+1. Complete the REST API by modifying the api.js file based on following requirements
+    - complete the PUT and DELETE methods
+    - Modify the GET request for searching Employees based on following values received from the header
+        - EmpName='A'
+        - DeptName = 'D1'

@@ -4,3 +4,13 @@ Quiz?
 3. What is the use of ‘this’ object in reference functions?
 4. What is the use of $(“.c1”) selectors in jQuery?
 5. What is the use of ‘ready()’ function in jQuery?
+6. What is the use of ‘on()’ method in jQuery?
+7. Is it possible to attach events to dynamically added DOM elements? If yes then how can we do it?
+8. How to read all keys of the JSON object in JavaScript?
+9. What is the use of ‘Error()’ object in JavaScript?
+10. How to read all values of JSON object in JavaScript?
+11. What is jqXhr object?
+12. WHich method of the Promise object is executed when the execution is successful?
+13. WHich property is mandatory to be send from $.ajax() when we use POST and PUT request to send data to server?
+14. What happens when we use ‘corssDomain:true’, ‘dataType:’jsonp’’ while making $.ajax() call?
+15. Whcih property of ‘$.ajax()’ is used to send request headers to REST API?
