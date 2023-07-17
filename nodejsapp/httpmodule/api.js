@@ -16,21 +16,20 @@ let employees = [
 /*create server*/
 
 const server = http.createServer((req,resp)=>{
-
-  
-     
      /* detect the method and accrdingly implement the request processing */
      /* the GET request */
      if(req.method === "GET"){
+            
           /* Read the request header */
-    let id = parseInt(req.headers.id);
-        if(id === undefined || id === 0){
+         let id = parseInt(req.headers.id);
+          if(parseInt(id) === 0) {
+            console.log('No Headers');
             /* Send all data */
             resp.writeHead(200, {'Content-Type': 'application/json'});
             /* JSON response for employees data */
             resp.write(JSON.stringify(employees));
             resp.end();
-        } else {
+          } else{ 
             /* filter data from the employees based on id */
             let emp = employees.find((e)=>{
                 return e.EmpNo === id;
@@ -39,9 +38,10 @@ const server = http.createServer((req,resp)=>{
             resp.writeHead(200, {'Content-Type': 'application/json'});
             /* JSON response for employees data */
             resp.write(JSON.stringify(emp));
-            resp.end();
+            resp.end();}
         }
-     }
+    
+     
 
 
      /* The POST Request */
