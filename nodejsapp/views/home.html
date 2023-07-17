@@ -9,24 +9,42 @@
         $(document).ready(function(){
         
             $("#btnGetData").on('click',function(){
-                alert('ddd');
+                
                $.ajax({
-                    url: 'http://localhost:5006',
-                    method: 'GET',
-                    headers:{
-                        'x-id':0 /* custom header value*/
-                    }   
+                    url: 'http://localhost:6070/api/get',
+                    method: 'GET' 
                }).done(function(response){
                  alert(`Response Data ${JSON.stringify(response)}`);
                }).fail(function(error){
                  alert(`Error Occurred ${error}`);
                });
             });
+
+
+            $("#btnPostData").on('click',function(){
+                var data = {
+                    "EmpNo":10001,
+                    "EmpName" :"Kumar",
+                    "DeptName":"D1"
+                };
+                $.ajax({
+                     url: 'http://localhost:6070/api/get',
+                     method: 'POST',
+                     data:JSON.stringify(data),
+                     contentType:'application/json' 
+                }).done(function(response){
+                  alert(`Response Data ${ JSON.stringify(response)}`);
+                }).fail(function(error){
+                  alert(`Error Occurred ${error}`);
+                });
+             });
         });
     </script>
 </head>
 <body>
     <h1>The Home Page</h1>
     <button id="btnGetData">Get Data</button>
+    <br>
+    <button id="btnPostData">POST Data</button>
 </body>
 </html>
