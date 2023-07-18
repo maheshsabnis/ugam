@@ -118,3 +118,62 @@
 2. (optional) Use .ajax() to post image to the server
 
 3. (Mandatory) Modify the server.js to have APIs implemented to perform Get and POST operations from the home.html
+
+
+# Day: 18-July-2023
+
+1. Complete CRUD Operarions for Employees
+
+````sql
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Department](
+	[DeptNo] [int] NOT NULL,
+	[DeptName] [varchar](200) NOT NULL,
+	[Location] [varchar](100) NOT NULL,
+	[Capacity] [int] NOT NULL
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Department] ADD PRIMARY KEY CLUSTERED 
+(
+	[DeptNo] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Employee](
+	[EmpNo] [int] NOT NULL,
+	[EmpName] [varchar](400) NOT NULL,
+	[Designation] [varchar](100) NOT NULL,
+	[Salary] [int] NOT NULL,
+	[DeptNo] [int] NOT NULL
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Employee] ADD PRIMARY KEY CLUSTERED 
+(
+	[EmpNo] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Employee]  WITH CHECK ADD FOREIGN KEY([DeptNo])
+REFERENCES [dbo].[Department] ([DeptNo])
+GO
+
+````
+
+2. Create a REST API, thet will have a 'HTTP GET' method, this method will accept parametere as follows
+    - http://server:PORT/api/search/:take/:skip
+    - take: number of records to be shown in HTML Table
+    - skip: the numbers of records to be skpipped from the top 
+3. The valeus from take and skip must be selected by end-user from HTML View, 
+    - May be input elements to enter data for take and skip or HTML Select
+5. The botteom of the table where data is shown MUST show bootstrap pahgination in numbers 
+    - If total records on serever are 100 and then each page size is 10 then table will have 10 rows and the pagination numbers will be 10
+    - Note : show 1 number more in pagination e.g. is pages are 10 but the number of records are 104, then the pagination numbers will be 11      
+
+
