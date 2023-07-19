@@ -177,3 +177,7 @@ GO
     - Note : show 1 number more in pagination e.g. is pages are 10 but the number of records are 104, then the pagination numbers will be 11      
 
 
+# Date: 19-July-2023
+1. Modify the Express REST API (No database) to use it as Microservice using Docker by creating docker files
+2. Create seperate Microservices be each for Dept and Emp (No Database)
+3. Access these microservices in jQuery App
