@@ -2,7 +2,6 @@ import express from 'express';
 import cors from 'cors';
 import DataAccess from './dataaccess.js';
 
-
 // define port
 
 const PORT = process.env.PORT || 7001;
@@ -21,7 +20,6 @@ instance.use(express.json());
 instance.use(express.urlencoded({extended:false}));
 
 const da = new DataAccess();
-
 
 // REST Methods, the zsecond parameter is RequestHamdler
 // that is executing 'Callback' functions

@@ -1,7 +1,5 @@
 import express from 'express';
 import cors from 'cors';
-import DataAccess from './dataaccess.js';
-
 
 // define port
 
@@ -20,16 +18,16 @@ instance.use(express.json());
 // URL encoding so that the body can be read
 instance.use(express.urlencoded({extended:false}));
 
-const da = new DataAccess();
+// REST Methods
+instance.get('/api/products',(req,resp)=>{
+    resp.status(200).send({message: 'Success', data: [{id:101, name:'P1'}, {id:102, name:'P2'}]});
+});
 
-
-// REST Methods, the zsecond parameter is RequestHamdler
-// that is executing 'Callback' functions
-// these function MUST accept Http Request and Response 
-// Object
-instance.get('/api/emps', da.getEmployees);
-
-instance.post('/api/emps', da.saveEmployee);
+instance.post('/api/products',(req,resp)=>{
+    // Read body
+    console.log(req.body);
+    resp.status(200).send({message: 'Success', data:req.body});
+});
 
 // Start Listening
 

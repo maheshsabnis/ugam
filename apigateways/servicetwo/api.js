@@ -2,10 +2,9 @@ import express from 'express';
 import cors from 'cors';
 import DataAccess from './dataaccess.js';
 
-
 // define port
 
-const PORT = process.env.PORT || 7001;
+const PORT = process.env.PORT || 7002;
 
 // create an express instance
 const instance = express();
@@ -22,14 +21,13 @@ instance.use(express.urlencoded({extended:false}));
 
 const da = new DataAccess();
 
-
 // REST Methods, the zsecond parameter is RequestHamdler
 // that is executing 'Callback' functions
 // these function MUST accept Http Request and Response 
 // Object
-instance.get('/api/emps', da.getEmployees);
+instance.get('/api/prds', da.getProducts);
 
-instance.post('/api/emps', da.saveEmployee);
+instance.post('/api/prds', da.saveProduct);
 
 // Start Listening
 

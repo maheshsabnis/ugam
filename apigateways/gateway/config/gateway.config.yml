@@ -1,0 +1,62 @@
+http:
+  port: 8080 # The Service API Gateway PORT
+admin:
+  port: 9876 # API gateway Admin PORT
+  host: localhost
+apiEndpoints:
+  api:
+    host: localhost
+    paths: '/ip' # API ENdpoint for the gateway service
+  empserv:
+    host: localhost # Employee Service Actual Endpoint
+    paths: ['/api/emps', '/api/emps/*']
+  prdserv:
+    host: localhost  # Product Service Actual Endpoint
+    paths: ['/api/prds', '/api/prds/*']    
+serviceEndpoints:
+   httpbin:
+    url: 'https://httpbin.org' # API Gateway default host
+   empService:
+    url: 'http://localhost:7001' # EMployee Service HTTP host
+   prdService:
+    url: 'http://localhost:7002' # Product Service HTTP host
+policies:
+  - basic-auth
+  - cors
+  - expression
+  - key-auth
+  - log
+  - oauth2
+  - proxy
+  - rate-limit
+pipelines:
+  default:
+    apiEndpoints:
+      - api
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: httpbin 
+              changeOrigin: true
+  empServPipeline:
+    apiEndpoints:
+      - empserv
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: empService 
+              changeOrigin: true
+  prdervPipeline:
+    apiEndpoints:
+      - prdserv
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: prdService
+              changeOrigin: true     

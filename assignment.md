@@ -181,3 +181,34 @@ GO
 1. Modify the Express REST API (No database) to use it as Microservice using Docker by creating docker files
 2. Create seperate Microservices be each for Dept and Emp (No Database)
 3. Access these microservices in jQuery App
+
+
+# Date :20-July-2023
+1. Validate the jQuery Client Application to access the Secure API those are secured using the JSON Web Token. First Validate the user and then Authorize the user to access data from the REST API
+
+````javascript
+// User Login and Receining Token
+    $.ajax({
+        url:'',
+        method:"POST",
+        data :{USER-CRENDENTIALS},
+    }).done(function(response){
+        sessionStorage.set('token', RECEIVED-TOKEN)
+    }).error();
+
+
+// AUTHORIZATION
+// ReafToken
+
+let token = sessionStorage.get('token')
+$.ajax({
+        url:'',
+        method:"GET",
+        headers:{
+            'AUTHORIZATION':`Bearer ${token}`
+        }
+    }).done(function(response){
+        sessionStorage.set('token', RECEIVED-TOKEN)
+    }).error();
+
+`````

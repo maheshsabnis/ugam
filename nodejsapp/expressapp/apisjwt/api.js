@@ -27,6 +27,8 @@ const da = new DataAccess();
 // that is executing 'Callback' functions
 // these function MUST accept Http Request and Response 
 // Object
+instance.post('/api/auth', da.authUser);
+
 instance.get('/api/emps', da.getEmployees);
 
 instance.post('/api/emps', da.saveEmployee);
