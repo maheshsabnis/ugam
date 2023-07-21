@@ -177,7 +177,7 @@ const  MyChildComponent=(props)=>{
 ````javascript
        useEffect(()=>{
         /* perform resource intensive operation*/
-       },[]); /* an emtoy array means the state is change and useEffect() can stop */
+       },[]); /* dependency parameter, an emtpy array means the state is change and useEffect() can stop */
 ````
     - Callback Execution
         - useCallback()
@@ -210,3 +210,52 @@ const  MyChildComponent=(props)=>{
         - Uses ReactDOM to redner the Component
     - App.js
         - Contains the component    
+
+# The Property Binding of State to Editable HTML Elements
+- snippet
+````javascript
+    // setX  state property action that  is used to dispatch an action which will be executed
+    // based on an event of HTML element 
+    const [x,setX] = useState(0)
+
+  return(
+      <input value={x}/>
+  );
+
+
+````
+
+- Uncontrolled components (Not used in readl world apps)
+    - all state are readonly by default
+    - to change teh we must use 'ref' to access HTML element explicitly for Read/Write operations 
+- Controlled components
+    - They use 'UnDirectional DataFlow'
+        - State property is bound to HTML element (as shown in above snippet)
+        - To update this property, we must register the 'event property' of HTML element (e.g. onChange for input element) so that they can dispatch the 'state property action' to update the state from initial to final value based on value entered in HTML element (see the following snipped)
+
+````javascript
+   const [x,setX] = useState(0)
+    // evt is an event object that isnraised on HTML Element
+    // evt.target, is the HTML element on which an evet is raised
+    // evt.target.value, is the value entered in the HTML element
+  return(
+      <input value={x} onChange={(evt)=> setX(evt.target.value)}/>
+  );
+````
+
+- Virtual DOM
+    - It is a process for caching the renderd output into the React's object model created in Browser's JSOM
+    - If any property is changed and because of that if any HTML element needs to be rendered again, then instead of re-rendering the entire DOM, only the element that needs to be change will be updated the new HTML (after update) and the previously cached HTML will be compared and only the changes will be pushed (patched) to the DOM, this is Performance of React
+        - React internally applies 'key' to each HTML elementin DOM
+        - If the HTML element is duynamically generated using the code in component then we MUST apply key explicitly 
+
+- React's Composable UI
+    - A Component can be consist of Multiple Child Components        
+
+- HTTP Calls using React.js
+    - USe of 'axios' library
+        - a 'Promise' based library for performing async HTTP Operations
+        - get(), post(), put(), and delete()
+    - used the 'useEffect()' hook  to call a REST api to get data from it 
+        - not for HTTP post, put, and delete operations
+        - npm install --save axios       

@@ -172,7 +172,7 @@ GO
     - skip: the numbers of records to be skpipped from the top 
 3. The valeus from take and skip must be selected by end-user from HTML View, 
     - May be input elements to enter data for take and skip or HTML Select
-5. The botteom of the table where data is shown MUST show bootstrap pahgination in numbers 
+5. The botteom of the table where data is shown MUST show bootstrap pagination in numbers 
     - If total records on serever are 100 and then each page size is 10 then table will have 10 rows and the pagination numbers will be 10
     - Note : show 1 number more in pagination e.g. is pages are 10 but the number of records are 104, then the pagination numbers will be 11      
 
@@ -212,3 +212,16 @@ $.ajax({
     }).error();
 
 `````
+
+# Date: 21-July-2023
+
+1. Modify the TableComponent for showing the 'Delete' button for each row
+    - The Parent Coponent should pass 'canDelete' props as 'true', then only the table will show the 'Delete' button
+    - When this delete button is clicked, the row must be deleted
+        - This should emit an event e.g. props.delete() which will be subscribed by parent to delete the record by making REST API call
+````html
+    <TableComponent dataSource={depts} canDelete={true} 
+      deleteRecord={(row)=>delete(row)}
+    />
+````
+    -  deleteRecord is props emitted by the TableComponent and 'delete()' is the method in the Parent component tyhat will make the REST API call to delete the record        
